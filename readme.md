@@ -10,7 +10,7 @@ Then run it with `nohup ./dockerhub-webhook-server`
 
 It will spin up a server listening on port `8008`
 
-It give you a webhook url like: http://domain-or-ip:8008/X12349999
+It gives you a webhook url like: http://domain-or-ip:8008/X12349999
 
 Use it for example in Dockerhub, so each time you push your image to the registry it will execute the script in the folder `.webhook/setup`.
 
@@ -47,3 +47,9 @@ I strongly recommend you keep this file structure and add it to the root of your
 
 You can test it locally without adding it anywhere:
 `curl http://domain-or-ip:8008/X12349999`
+
+You might want to open up port 8008 on your server:
+```
+sudo ufw allow 8008
+sudo ufw enable
+```
