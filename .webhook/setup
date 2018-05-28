@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "Stop..."
+docker-compose stop web
+docker-compose stop worker
+echo "Pull..."
+docker pull kaygeee/inquiries-maker:latest
+echo "Remove..."
+docker rm inquiries-maker_web_1
+docker rm inquiries-maker_worker_1
+sleep 1
+echo "Build..."
+docker-compose up -d
+echo "Done!"
